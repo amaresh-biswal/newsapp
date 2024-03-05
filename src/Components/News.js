@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 
 
 export class News extends Component {
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     static defaultProps={
         country: "in",
         category: 'general',
@@ -12,13 +15,14 @@ export class News extends Component {
         country: PropTypes.string,
         category: PropTypes.string,
     }
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1,
         }
+        document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsMania`;
     }
     async componentDidMount() {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=1&pageSize=9`;
@@ -56,7 +60,7 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className="text-center">NewsMania - Top headlines</h1>
+                <h1 className="text-center">NewsMania - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                 {this.state.loading && <div className="d-flex justify-content-center">
                     <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>

@@ -25,37 +25,49 @@ export class News extends Component {
         document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsMania`;
     }
     async componentDidMount() {
+        this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=1&pageSize=9`;
         this.setState({loading: true});
         let data = await fetch(url);
+        this.props.setProgress(30);
         let parsedData = await data.json();
+        this.props.setProgress(70);
         this.setState({loading: false});
         this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
+        this.props.setProgress(100);
     }
     handlePrevClk = async () => {
+        this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=${this.state.page - 1}&pageSize=9`;
         this.setState({loading: true});
         let data = await fetch(url);
+        this.props.setProgress(30);
         let parsedData = await data.json();
+        this.props.setProgress(70);
         this.setState({loading: false});
         this.setState({
             page: this.state.page - 1,
             articles: parsedData.articles,
         })
+        this.props.setProgress(100);
     }
     handleNxtClk = async () => {
+        this.props.setProgress(10);
         if (this.state.page + 1 > Math.ceil(this.state.totalResults / 9)) {}
         else{
             let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=${this.state.page + 1}&pageSize=9`;
             this.setState({loading: true});
             let data = await fetch(url);
+            this.props.setProgress(30);
             let parsedData = await data.json();
+            this.props.setProgress(70);
             this.setState({loading: false});
             this.setState({
                 page: this.state.page + 1,
                 articles: parsedData.articles,
             })
         }
+        this.props.setProgress(100);
     }
     render() {
         return (

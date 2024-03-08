@@ -1,3 +1,50 @@
+NewsMania: React News Application
+This is the README file for NewsMania, a React news application that delivers up-to-date news from various categories.
+
+Features:
+
+>Fetches news articles from different categories:
+1) Business
+2) Entertainment
+3) General
+4) Health
+5) Science
+6) Sports
+7) Technology
+
+>Clean and user-friendly interface for easy navigation.
+
+Tech Stack:
+
+React JS
+newsapi
+
+Installation:
+
+Clone this repository:
+
+Bash
+[git clonet](https://github.com/amaresh-biswal/newsapp.git)
+Use code with caution.
+
+Install dependencies:
+
+Bash
+cd NewsMania
+npm install
+Use code with caution.
+
+Running the Application:
+
+Start the development server:
+
+Bash
+npm start
+Use code with caution.
+This will usually launch the application in your web browser at http://localhost:3000/.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

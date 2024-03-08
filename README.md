@@ -24,7 +24,7 @@ Installation:
 Clone this repository:
 
 Bash
-[git clonet](https://github.com/amaresh-biswal/newsapp.git)
+[git clone](https://github.com/amaresh-biswal/newsapp.git)
 Use code with caution.
 
 Install dependencies:

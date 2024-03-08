@@ -28,8 +28,9 @@ export class News extends Component {
         this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=1&pageSize=9`;
         this.setState({loading: true});
+        this.props.setProgress(20);
         let data = await fetch(url);
-        this.props.setProgress(30);
+        this.props.setProgress(40);
         let parsedData = await data.json();
         this.props.setProgress(70);
         this.setState({loading: false});
@@ -40,8 +41,9 @@ export class News extends Component {
         this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=${this.state.page - 1}&pageSize=9`;
         this.setState({loading: true});
+        this.props.setProgress(20);
         let data = await fetch(url);
-        this.props.setProgress(30);
+        this.props.setProgress(40);
         let parsedData = await data.json();
         this.props.setProgress(70);
         this.setState({loading: false});
@@ -57,8 +59,9 @@ export class News extends Component {
         else{
             let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a2d5c69a7b49569d539cb15bb35edd&page=${this.state.page + 1}&pageSize=9`;
             this.setState({loading: true});
+            this.props.setProgress(20);
             let data = await fetch(url);
-            this.props.setProgress(30);
+            this.props.setProgress(40);
             let parsedData = await data.json();
             this.props.setProgress(70);
             this.setState({loading: false});
@@ -72,7 +75,7 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className="text-center">NewsMania - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
+                <h1 className="text-center" style={{marginTop:"60px"}}>NewsMania - Top {this.capitalizeFirstLetter(this.props.category)} News</h1>
                 {this.state.loading && <div className="d-flex justify-content-center">
                     <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>

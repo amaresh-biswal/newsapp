@@ -24,15 +24,13 @@ Installation:
 Clone this repository:
 
 Bash
-[git clone](https://github.com/amaresh-biswal/newsapp.git)
-Use code with caution.
+git clone: https://github.com/amaresh-biswal/newsapp.git
 
 Install dependencies:
 
 Bash
 cd NewsMania
 npm install
-Use code with caution.
 
 Running the Application:
 
@@ -40,7 +38,6 @@ Start the development server:
 
 Bash
 npm start
-Use code with caution.
 This will usually launch the application in your web browser at http://localhost:3000/.
 
 

@@ -69,7 +69,7 @@ export class News extends Component {
   handleSearch = (event) => {
     event.preventDefault();
     const filteredArticles = this.state.allArticles.filter((article) =>
-      article.title.toLowerCase().includes(this.state.searchKeyword.toLowerCase())
+      article.title.toLowerCase().includes(this.state.searchKeyword.toLowerCase()) 
     );
     this.setState({ filteredArticles });
   };
